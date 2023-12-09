@@ -1,0 +1,98 @@
+.intro-content {
+    margin-top: 3.5rem;
+    margin-right: 3.5rem;
+    margin-left: 3.5rem;
+}
+
+.blog-post {
+    display: block;
+    margin: 10px;
+    font-family: monospace;
+}
+
+.blog-line {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 20px;
+    margin-left: 2rem;
+  }
+  
+  .left-content {
+    /* Adjust styling for your left content */
+    width: 50%; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .timeline-container {
+    position: sticky;
+    top: 3.5rem; 
+    background-color: #f0f0f0;
+    height: 30px; /* Adjust the height of the timeline container */
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 20px;
+  }
+  
+  .scrubber {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: blue;
+    cursor: pointer;
+  }
+  
+  .progress-bar {
+    position: absolute;
+    height: 30px;
+    background-color: lightblue;
+    z-index: -1;
+    width: 0; /* Initial width is 0 */
+    transition: width ease; /* Add a smooth transition effect */
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  .right-content {
+    /* Adjust styling for your right content */
+    width: 50%; /* Adjust width as needed */
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-left: 0 ;
+    }
+  
+    .left-content,
+    .right-content {
+      width: 100%; /* Full width for smaller screens */
+    }
+  
+    .timeline-container {
+      position: sticky;
+      margin-top: 2.5rem;
+    }
+    #vrview { 
+        position: relative;
+        height: 45vh;
+        margin-top: 1rem;
+    }
+  }
+
+#vrview {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    position: sticky;
+    top: 3.5rem;
+    height: 90vh;
+}
