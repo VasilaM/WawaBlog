@@ -1,5 +1,11 @@
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    height: max-content; /* Set a large height to enable scrolling */
+    background: linear-gradient(to bottom, #ffbf70, #87CEFA, #7ec9f8,  #65bcf3, #248ccc, #0f0fc7, #1c1c63, #1c1c63, 
+    #10103a, #01010b,  #1c1cc2, #248ccc, #87CEFA, #ffbf70);
+    transition: background-color 0.5s ease-in-out;
+}
 .intro-content {
-    margin-top: 3.5rem;
     margin-right: 3.5rem;
     margin-left: 3.5rem;
 }
@@ -7,12 +13,16 @@
 .blog-post {
     display: block;
     margin: 10px;
-    font-family: monospace;
 }
 
 .blog-line {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+.blog-head {
+    font-weight: bold;
+    font-size: 2.5rem;
 }
 
 .main-content {
@@ -32,26 +42,31 @@
   
   .timeline-container {
     position: sticky;
-    top: 3.5rem; 
+    top: 5rem; 
+    margin-top: 0.5rem;
     background-color: #f0f0f0;
     height: 30px; /* Adjust the height of the timeline container */
     overflow: hidden;
     z-index: 1;
     margin-bottom: 20px;
+    border-radius: 15px;
+
   }
   
   .scrubber {
     position: absolute;
     width: 10px;
     height: 30px;
-    background-color: blue;
+    background-color: black;
     cursor: pointer;
   }
   
   .progress-bar {
     position: absolute;
     height: 30px;
-    background-color: lightblue;
+    border-start-start-radius: 15px;
+    background-color: yellow;
+    opacity: 70%;
     z-index: -1;
     width: 0; /* Initial width is 0 */
     transition: width ease; /* Add a smooth transition effect */
@@ -60,39 +75,114 @@
   .content {
     flex: 1;
   }
+ 
   
   .right-content {
     /* Adjust styling for your right content */
     width: 50%; /* Adjust width as needed */
   }
 
-  @media (max-width: 768px) {
-    .main-content {
-      flex-direction: column-reverse;
-      align-items: center;
-      margin-left: 0 ;
-    }
   
-    .left-content,
-    .right-content {
-      width: 100%; /* Full width for smaller screens */
-    }
-  
-    .timeline-container {
-      position: sticky;
-      margin-top: 2.5rem;
-    }
-    #vrview { 
-        position: relative;
-        height: 45vh;
-        margin-top: 1rem;
-    }
-  }
 
 #vrview {
     margin-left: 2.5rem;
     margin-right: 2.5rem;
     position: sticky;
     top: 3.5rem;
-    height: 90vh;
+    height: 85vh;
+}
+
+
+.sun-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* Allow clicks to go through the suns to the content beneath */
+}
+
+.sun {
+  border-radius: 50%;
+  background-color: transparent;
+  position: absolute;
+  transform-origin: center bottom; /* Set the rotation origin to the bottom center */
+  transition: transform ease-in-out, background-color ease-in-out;
+}
+
+#sun1 {
+  width: 100px;
+  height: 100px;
+  opacity: 70%;
+}
+#sun2 {
+  width: 50px;
+  height: 50px;
+}
+
+.timeline-timestamps {
+  position: sticky;
+  top: 3rem; 
+  display: flex;
+  width: 95%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.timeline-timestamp {
+  cursor: pointer;
+  background-color: transparent;
+  color: yellow;
+  font-weight: bold;
+  font-size: small;
+  padding: 2.5px;
+  background-color: black;
+  opacity: 90%;
+}
+
+
+.tour-guide {
+  text-align: center;
+  align-self: center;
+  font-size: large;
+  padding: 0.5rem;
+  background-color: white;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+@media (max-width: 940px) {
+  .main-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-left: 0 ;
+  }
+
+  .left-content,
+  .right-content {
+    width: 100%; /* Full width for smaller screens */
+  }
+  .left-content {
+    padding-top: 5rem;
+  }
+
+  #vrview { 
+      position: relative;
+      height: 45vh;
+      top:0;
+  }
+  .timeline-timestamps {
+    top: 3rem; 
+  }
+  .timeline-container {
+    top: 5rem;
+  }
+  .timeline-timestamp {
+    font-size: x-small;
+    font-weight: lighter;
+  }
+  .blog-post img {
+    width: 90vw;
+  }
 }

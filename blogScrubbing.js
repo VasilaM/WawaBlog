@@ -3,6 +3,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const timelineContainer = document.querySelector('.timeline-container');
     const scrubber = document.querySelector(".scrubber");
     const progressBar = document.querySelector(".progress-bar");
+    const timestampContainer = document.querySelector(".timeline-timestamps");
+
+
+    // Number of hours
+    const numHours = 24;
+
+
+    // Add timestamps to the separate container above the timeline
+    for (let i = 0; i < numHours; i++) {
+        const timestamp = document.createElement('div');
+        timestamp.classList.add('timeline-timestamp');
+        timestamp.textContent = `${i}`; // Adjust as needed
+
+        // Attach a click event listener to each timestamp
+        timestamp.addEventListener('click', function () {
+            // Scroll to the corresponding content
+            const targetContent = document.getElementById(`hour-${i}`);
+            if (targetContent) {
+                window.scrollTo({ top: targetContent.offsetTop-105, behavior: 'smooth' });
+            }
+        });
+
+        timestampContainer.appendChild(timestamp);
+      }
+
   
     const updateTimeline = () => {
       const totalHeight = leftContent.offsetHeight - window.innerHeight;
@@ -70,5 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial update
     updateTimeline();
   });
-  
-  
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const pageBackgroundColor = getComputedStyle(document.body).backgroundColor;
+
+    const element = document.getElementById("timeline-timestamps"); // Replace with your actual element ID
+    element.style.backgroundColor = pageBackgroundColor;
+    element.style.opacity = 1; // Adjust the opacity as needed
+});

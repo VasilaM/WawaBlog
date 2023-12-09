@@ -3,7 +3,7 @@ window.addEventListener('load', onVrViewLoad);
 function onVrViewLoad() {
    // Create a VRView instance
   var vrView = new VRView.Player('#vrview', {
-    image: 'first-image.jpg',
+    image: 'https://snworksceo.imgix.net/pri/a95fa884-a830-4166-b17e-3d4547037a6c.sized-1000x1000.jpg?',
     width: '100%', 
     height: '100%'
   });
